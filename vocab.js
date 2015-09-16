@@ -79,9 +79,22 @@ module.exports = function(ferd) {
         return str.match(/^\d$/i) || str.match(/^exit$/i);
       }; // updating the listener
       handler = function (response) {
-        message.text = "Hello!";
-        response.postMessage(message);
-        Game.prompt(response);
+        var trigger = response.incomingMessage.text;
+        if (trigger === 'exit') {
+         message.text = "Thank you for playing.";
+         response.postMessage(message);
+         Game.reset(); 
+        } else {
+          if (parseInt(trigger) === Game.answer) {
+            message.text = "Correct!";
+            response.postMessage(message);
+          } else {
+            message.text = "The correct answer is: `" + Game.answer.toString() + '`';
+            response.postMessage(message);
+          }
+          
+          Game.prompt(response);
+        }
       }; // updating the handler
     },
 

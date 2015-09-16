@@ -1,6 +1,6 @@
 {
   "name": "ferd-vocab",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A vocabulary quiz game based on SAT words.",
   "main": "vocab.js",
   "scripts": {
