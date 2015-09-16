@@ -1,14 +1,19 @@
 {
-  "name": "ferd-onion",
-  "version": "0.0.2",
-  "description": "A Ferd module that shows the latest news from the Onion.",
-  "main": "onion.js",
+  "name": "ferd-vocab",
+  "version": "0.0.1",
+  "description": "A vocabulary quiz game based on SAT words.",
+  "main": "vocab.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gartenfeld/ferd-vocab.git"
+  },
   "author": "David Rosson",
   "license": "MIT",
-  "dependencies": {
-    "scrape": "^0.2.3"
-  }
+  "bugs": {
+    "url": "https://github.com/gartenfeld/ferd-onion/issues"
+  },
+  "homepage": "https://github.com/gartenfeld/ferd-onion#readme"
 }
