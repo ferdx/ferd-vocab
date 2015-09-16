@@ -1,19 +1,26 @@
+var SAT = require('./sat');
+
 var personify = require('extend');
 
 var message = { mrkdwn: true };
 
 var persona = {
     as_user: false,
-    username: 'Ferd',
+    username: 'SAT Vocabulary',
     icon_emoji: ':blue_book:'
 };
 
 var Repertoire = {
   generate: function() {
+    var target = SAT[Math.floor(Math.random() * SAT.length)];
+    var foils = [];
+    for (var i = 0; i < 4; i++) {
+      foils.push(SAT[Math.floor(Math.random() * SAT.length)].g);
+    }
     var quiz = {
-      word: 'lorem',
-      answer: 'foo',
-      foils: ['bar', 'baz', 'spam', 'bacon']
+      word: target.w,
+      answer: target.g,
+      foils: foils
     };
     return quiz;
   }
