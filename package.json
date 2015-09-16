@@ -1,0 +1,14 @@
+{
+  "name": "ferd-onion",
+  "version": "0.0.2",
+  "description": "A Ferd module that shows the latest news from the Onion.",
+  "main": "onion.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Rosson",
+  "license": "MIT",
+  "dependencies": {
+    "scrape": "^0.2.3"
+  }
+}
