@@ -55,9 +55,9 @@ module.exports = function(ferd) {
         return str.match(/ferd vocab/i);
       }; // updating the listener
       handler = function (response) {
-        message.text = "Game on! Type `exit` to quit.";
+        message.text = "Game on! Type `exit` or to quit.";
         response.postMessage(message);
-        Game.prompt(response);
+        setTimeout(function() { Game.prompt(response); }, 1000);
       }; // updating the handler
     },
 
@@ -76,7 +76,9 @@ module.exports = function(ferd) {
 
     judge: function() {
       predicate = function(str) {
-        return str.match(/^\d$/i) || str.match(/^exit$/i);
+        return str.match(/^\d$/i) || 
+               str.match(/^exit$/i) ||
+               str.match(/^quit$/i);
       }; // updating the listener
       handler = function (response) {
         var trigger = response.incomingMessage.text;
@@ -92,8 +94,7 @@ module.exports = function(ferd) {
             message.text = "The correct answer is: `" + Game.answer.toString() + '`';
             response.postMessage(message);
           }
-          
-          Game.prompt(response);
+          setTimeout(function() { Game.prompt(response); }, 1000);
         }
       }; // updating the handler
     },

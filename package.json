@@ -1,6 +1,6 @@
 {
   "name": "ferd-vocab",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "A vocabulary quiz game based on SAT words.",
   "main": "vocab.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gartenfeld/ferd-onion/issues"
   },
-  "homepage": "https://github.com/gartenfeld/ferd-onion#readme"
+  "homepage": "https://github.com/gartenfeld/ferd-onion#readme",
+  "dependencies": {
+    "extend": "^3.0.0"
+  }
 }
