@@ -34,16 +34,16 @@ module.exports = function(ferd) {
   // initiate the predicate function that lives in 
   // the current closure, to be updated later
   var predicate = function() { return false; };
-
   // a filter that returns the closure predicate
   // to be passed to observable transformation
-  var intercept = function(message) {
-    return predicate(message.text);
+  var predicateInjector = function(message) { 
+    return predicate(message.text); 
   };
-
   // a similar closure pattern for updatable callback
   var handler = function() { return false; };
-  var callback = function(response) { return handler(response); };
+  var handlerInjector = function(response) { 
+    return handler(response); 
+  };
 
 
   var Game = {
@@ -81,8 +81,8 @@ module.exports = function(ferd) {
                str.match(/^quit$/i);
       }; // updating the listener
       handler = function (response) {
-        var trigger = response.incomingMessage.text;
-        if (trigger === 'exit') {
+        var trigger = response.incomingMessage.text.toLowerCase();
+        if (trigger === 'exit' || trigger === 'quit') {
          message.text = "Thank you for playing.";
          response.postMessage(message);
          Game.reset(); 
@@ -103,6 +103,6 @@ module.exports = function(ferd) {
 
   Game.reset();
 
-  ferd.hear(intercept, /.*/, callback);
+  ferd.hear(predicateInjector, /.*/, handlerInjector);
 
 };
