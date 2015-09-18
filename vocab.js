@@ -55,7 +55,7 @@ module.exports = function(ferd) {
         return str.match(/ferd vocab/i);
       }; // updating the listener
       handler = function (response) {
-        message.text = "Game on! Type `exit` or to quit.";
+        message.text = "Game on! Type `exit` to quit.";
         response.postMessage(message);
         setTimeout(function() { Game.prompt(response); }, 1000);
       }; // updating the handler
